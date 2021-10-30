@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { ClientRepository } from 'src/core/repositories/client.repository';
-import { UpdateClientDto } from 'src/shared/dtos/clients/update-client.dto';
+import { UpdateClientDto } from 'src/typeorm/dtos/clients/update-client.dto';
 
 @Injectable()
 export class UpdateUserUseCase {

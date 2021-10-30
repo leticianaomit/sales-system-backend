@@ -1,4 +1,4 @@
-import { CreateClientDto } from 'src/shared/dtos/clients/create-client.dto';
+import { CreateClientDto } from 'src/typeorm/dtos/clients/create-client.dto';
 
 export class Client {
   id?: string;

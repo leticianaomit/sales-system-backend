@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ClientsController } from './controllers/clients.controller';
-import { ClientTypeormRepository } from './infrastructure/typeorm/repositories/client-typeorm.repository';
+import { ClientTypeormRepository } from './typeorm/repositories/client-typeorm.repository';
 import { CreateUserUseCase } from './use-cases/clients/create-client.usecase';
 import { typeOrmConfig } from 'typeorm.config';
 import { Connection } from 'typeorm';

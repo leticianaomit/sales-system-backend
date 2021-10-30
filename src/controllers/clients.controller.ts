@@ -1,5 +1,5 @@
 import { Body, Controller, Post } from '@nestjs/common';
-import { CreateClientDto } from 'src/shared/dtos/clients/create-client.dto';
+import { CreateClientDto } from 'src/typeorm/dtos/clients/create-client.dto';
 import { CreateUserUseCase } from 'src/use-cases/clients/create-client.usecase';
 
 @Controller('clients')
