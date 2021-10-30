@@ -11,6 +11,6 @@ export class CreateUserUseCase {
 
   public async execute(createClientDto: CreateClientDto) {
     const client = new Client(createClientDto);
-    await this.repository.addClient(client);
+    return await this.repository.addClient(client);
   }
 }

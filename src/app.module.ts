@@ -1,26 +1,11 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ClientsController } from './controllers/clients.controller';
-import { ClientTypeormRepository } from './typeorm/repositories/client-typeorm.repository';
-import { CreateUserUseCase } from './use-cases/clients/create-client.usecase';
 import { typeOrmConfig } from 'typeorm.config';
-import { Connection } from 'typeorm';
+import { ClientsModule } from './modules/clients.module';
 
 @Module({
-  imports: [
-    TypeOrmModule.forRoot(typeOrmConfig),
-    TypeOrmModule.forFeature([ClientTypeormRepository]),
-  ],
-  controllers: [ClientsController],
-  providers: [
-    {
-      provide: 'ClientRepository',
-      inject: [Connection],
-      useFactory: (connection) =>
-        connection.getCustomRepository(ClientTypeormRepository),
-    },
-    // UseCase
-    CreateUserUseCase,
-  ],
+  imports: [TypeOrmModule.forRoot(typeOrmConfig), ClientsModule],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}

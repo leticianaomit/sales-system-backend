@@ -16,4 +16,22 @@ export class ClientTypeormRepository
 
     return { id: insertResult.id };
   }
+
+  async getAllClients() {
+    const clientOrms: ClientTypeorm[] = await this.find();
+
+    const findResult: Client[] = ClientTypeormMapper.toEntities(clientOrms);
+
+    return findResult;
+  }
+
+  async updateClient(id: Client['id'], client: Client) {
+    const clientOrm: ClientTypeorm = ClientTypeormMapper.toOrmEntity(client);
+
+    await this.createQueryBuilder()
+      .update()
+      .set({...clientOrm, id})
+      .where('id = :id', { id })
+      .execute();
+  }
 }

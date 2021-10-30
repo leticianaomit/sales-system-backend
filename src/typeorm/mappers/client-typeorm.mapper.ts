@@ -15,16 +15,16 @@ export class ClientTypeormMapper {
     return clients.map((client) => this.toOrmEntity(client));
   }
 
-  //   public toDomainEntity(clientOrm: ClientTypeorm): Client {
-  //     const client: Client = new Client({
-  //       id: clientOrm.id,
-  //       name: clientOrm.name,
-  //     });
+  public static toEntity(clientOrm: ClientTypeorm): Client {
+    const client: Client = new Client({
+      id: clientOrm.id,
+      name: clientOrm.name,
+    });
 
-  //     return client;
-  //   }
+    return client;
+  }
 
-  //   public toDomainEntities(clientOrms: ClientTypeorm[]): Client[] {
-  //     return clientOrms.map((clientOrm) => this.toDomainEntity(clientOrm));
-  //   }
+  public static toEntities(clientOrms: ClientTypeorm[]): Client[] {
+    return clientOrms.map((clientOrm) => this.toEntity(clientOrm));
+  }
 }

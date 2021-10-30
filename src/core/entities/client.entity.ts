@@ -4,7 +4,8 @@ export class Client {
   id?: string;
   name: string;
 
-  constructor(payload: CreateClientDto) {
-    this.name = payload.name;
+  constructor(client: Client) {
+    this.id = client.id;
+    this.name = client.name;
   }
 }
