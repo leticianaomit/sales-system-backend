@@ -9,33 +9,33 @@ import {
 } from '@nestjs/common';
 import { CreateClientDto } from 'src/typeorm/dtos/clients/create-client.dto';
 import { UpdateClientDto } from 'src/typeorm/dtos/clients/update-client.dto';
-import { CreateUserUseCase } from 'src/use-cases/clients/create-client.usecase';
+import { CreateClientUseCase } from 'src/use-cases/clients/create-client.usecase';
 import { DeleteClientUseCase } from 'src/use-cases/clients/delete-client.usecase';
-import { FindAllUsersUseCase } from 'src/use-cases/clients/find-all-clients.usecase';
-import { UpdateUserUseCase } from 'src/use-cases/clients/update-client.usecase';
+import { FindAllClientsUseCase } from 'src/use-cases/clients/find-all-clients.usecase';
+import { UpdateClientUseCase } from 'src/use-cases/clients/update-client.usecase';
 
 @Controller('clients')
 export class ClientsController {
   constructor(
-    private createUserUseCase: CreateUserUseCase,
-    private findAllUsersUseCase: FindAllUsersUseCase,
-    private updateUserUseCase: UpdateUserUseCase,
+    private createClientUseCase: CreateClientUseCase,
+    private findAllClientsUseCase: FindAllClientsUseCase,
+    private updateClientUseCase: UpdateClientUseCase,
     private deleteClientUseCase: DeleteClientUseCase,
   ) {}
 
   @Post()
   create(@Body() createClientDto: CreateClientDto) {
-    return this.createUserUseCase.execute(createClientDto);
+    return this.createClientUseCase.execute(createClientDto);
   }
 
   @Get()
   findAll() {
-    return this.findAllUsersUseCase.execute();
+    return this.findAllClientsUseCase.execute();
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateClientDto: UpdateClientDto) {
-    return this.updateUserUseCase.execute(id, updateClientDto);
+    return this.updateClientUseCase.execute(id, updateClientDto);
   }
 
   @Delete(':id')

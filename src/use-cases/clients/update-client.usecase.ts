@@ -4,7 +4,7 @@ import { ClientRepository } from 'src/core/repositories/client.repository';
 import { UpdateClientDto } from 'src/typeorm/dtos/clients/update-client.dto';
 
 @Injectable()
-export class UpdateUserUseCase {
+export class UpdateClientUseCase {
   constructor(
     @Inject('ClientRepository') private readonly repository: ClientRepository,
   ) {}
