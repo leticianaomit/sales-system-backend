@@ -1,7 +1,16 @@
-import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
+} from '@nestjs/common';
 import { CreateClientDto } from 'src/typeorm/dtos/clients/create-client.dto';
 import { UpdateClientDto } from 'src/typeorm/dtos/clients/update-client.dto';
 import { CreateUserUseCase } from 'src/use-cases/clients/create-client.usecase';
+import { DeleteClientUseCase } from 'src/use-cases/clients/delete-client.usecase';
 import { FindAllUsersUseCase } from 'src/use-cases/clients/find-all-clients.usecase';
 import { UpdateUserUseCase } from 'src/use-cases/clients/update-client.usecase';
 
@@ -11,6 +20,7 @@ export class ClientsController {
     private createUserUseCase: CreateUserUseCase,
     private findAllUsersUseCase: FindAllUsersUseCase,
     private updateUserUseCase: UpdateUserUseCase,
+    private deleteClientUseCase: DeleteClientUseCase,
   ) {}
 
   @Post()
@@ -26,5 +36,10 @@ export class ClientsController {
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateClientDto: UpdateClientDto) {
     return this.updateUserUseCase.execute(id, updateClientDto);
+  }
+
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.deleteClientUseCase.execute(id);
   }
 }

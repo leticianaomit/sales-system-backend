@@ -30,8 +30,12 @@ export class ClientTypeormRepository
 
     await this.createQueryBuilder()
       .update()
-      .set({...clientOrm, id})
+      .set({ ...clientOrm, id })
       .where('id = :id', { id })
       .execute();
+  }
+
+  async deleteClient(id: Client['id']) {
+    await this.delete({ id });
   }
 }
