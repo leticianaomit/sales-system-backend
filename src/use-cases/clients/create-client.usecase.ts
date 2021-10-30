@@ -7,9 +7,9 @@ import { CreateClientDto } from 'src/shared/dtos/clients/create-client.dto';
 
 @Injectable()
 export class CreateUserUseCase {
-  // constructor(@Inject('ClientRepository') private readonly repository: ClientRepository) {}
   constructor(
-    @InjectRepository(ClientTypeormRepository) private readonly repository: ClientTypeormRepository) {}
+    @Inject('ClientRepository') private readonly repository: ClientRepository,
+  ) {}
 
   public async execute(createClientDto: CreateClientDto) {
     const client = new Client(createClientDto);

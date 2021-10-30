@@ -8,6 +8,6 @@ export class ClientsController {
 
   @Post()
   create(@Body() createClientDto: CreateClientDto) {
-    // this.createUserUseCase.execute(createClientDto);
+    this.createUserUseCase.execute(createClientDto);
   }
 }
