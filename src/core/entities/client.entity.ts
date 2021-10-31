@@ -1,4 +1,3 @@
-import { CreateClientDto } from 'src/typeorm/dtos/clients/create-client.dto';
 import { Order } from './order.entity';
 
 export class Client {

@@ -11,20 +11,23 @@ export class OrderTypeormRepository extends Repository<OrderTypeorm> implements 
     const insertResult: OrderTypeorm = await this.save(orderOrm);
     return { id: insertResult.id };
   }
-  // async getAllClients() {
-  //   const clientOrms: ClientTypeorm[] = await this.find();
-  //   const findResult: Client[] = ClientTypeormMapper.toEntities(clientOrms);
-  //   return findResult;
-  // }
-  // async updateClient(id: Client['id'], client: Client) {
-  //   const clientOrm: ClientTypeorm = ClientTypeormMapper.toOrmEntity(client);
-  //   await this.createQueryBuilder()
-  //     .update()
-  //     .set({ ...clientOrm, id })
-  //     .where('id = :id', { id })
-  //     .execute();
-  // }
-  // async deleteClient(id: Client['id']) {
-  //   await this.delete({ id });
-  // }
+
+  async getAllOrders() {
+    const orderOrms: OrderTypeorm[] = await this.find();
+    const findResult: Order[] = OrderTypeormMapper.toEntities(orderOrms);
+    return findResult;
+  }
+
+  async updateOrder(id: Order['id'], order: Order) {
+    const orderOrm: OrderTypeorm = OrderTypeormMapper.toOrmEntity(order);
+    await this.createQueryBuilder()
+      .update()
+      .set({ ...orderOrm, id })
+      .where('id = :id', { id })
+      .execute();
+  }
+
+  async deleteOrder(id: Order['id']) {
+    await this.delete({ id });
+  }
 }
