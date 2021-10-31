@@ -9,7 +9,6 @@ import { UpdateProductUseCase } from 'src/use-cases/products/update-product.usec
 import { Connection } from 'typeorm';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([ProductTypeormRepository])],
   controllers: [ProductsController],
   providers: [
     {

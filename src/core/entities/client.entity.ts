@@ -4,7 +4,7 @@ import { Order } from './order.entity';
 export class Client {
   id?: string;
   name: string;
-  orders: Order[]
+  orders?: Order[]
 
   constructor(client: Client) {
     this.id = client.id;

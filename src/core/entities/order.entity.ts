@@ -6,7 +6,9 @@ export class Order {
   client: Client;
   items: OrderItem[]
 
-  constructor(client: Client) {
-    this.id = client.id;
+  constructor(order: Order) {
+    this.id = order.id;
+    this.client = order.client;
+    this.items = order.items;
   }
 }
