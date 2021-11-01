@@ -1,11 +1,11 @@
 import { IsDecimal, IsInt, IsNotEmpty } from 'class-validator';
 
-export class CreateProductDto {
+export class CreateUpdateProductDto {
   @IsNotEmpty()
   name: string;
 
   @IsDecimal()
-  price: string;
+  price: number;
 
   @IsInt()
   multiple: number;

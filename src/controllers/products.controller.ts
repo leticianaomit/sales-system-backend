@@ -7,8 +7,7 @@ import {
   Patch,
   Post,
 } from '@nestjs/common';
-import { CreateProductDto } from 'src/typeorm/dtos/products/create-product.dto';
-import { UpdateProductDto } from 'src/typeorm/dtos/products/update-product.dto';
+import { CreateUpdateProductDto } from 'src/typeorm/dtos/products/create-update-product.dto';
 import { CreateProductUseCase } from 'src/use-cases/products/create-product.usecase';
 import { DeleteProductUseCase } from 'src/use-cases/products/delete-product.usecase';
 import { FindAllProductsUseCase } from 'src/use-cases/products/find-all-products.usecase';
@@ -24,7 +23,7 @@ export class ProductsController {
   ) {}
 
   @Post()
-  create(@Body() createProductDto: CreateProductDto) {
+  create(@Body() createProductDto: CreateUpdateProductDto) {
     return this.createProductUseCase.execute(createProductDto);
   }
 
@@ -34,7 +33,10 @@ export class ProductsController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateClientDto: UpdateProductDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateClientDto: CreateUpdateProductDto,
+  ) {
     return this.updateProductUseCase.execute(id, updateClientDto);
   }
 

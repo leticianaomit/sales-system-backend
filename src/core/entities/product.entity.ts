@@ -1,13 +1,13 @@
 export class Product {
   id?: string;
   name: string;
-  price: string;
+  price: number;
   multiple: number
 
-  constructor(client: Product) {
-    this.id = client.id;
-    this.name = client.name;
-    this.price = client.price;
-    this.multiple = client.multiple;
+  constructor(product: Product) {
+    this.id = product.id;
+    this.name = product.name;
+    this.price = product.price;
+    this.multiple = product.multiple;
   }
 }

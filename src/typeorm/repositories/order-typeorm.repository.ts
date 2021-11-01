@@ -1,8 +1,9 @@
 import { Inject } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
 import { Order } from 'src/core/entities/order.entity';
 import { OrderItemRepository } from 'src/core/repositories/order-item.repository';
 import { OrderRepository } from 'src/core/repositories/order.repository';
-import { EntityRepository, Repository } from 'typeorm';
+import { Connection, EntityRepository, Repository } from 'typeorm';
 import { OrderTypeorm } from '../entities/order-typeorm.entity';
 import { OrderTypeormMapper } from '../mappers/order-typeorm.mapper';
 import { OrderItemTypeormRepository } from './order-item-typeorm.repository';
@@ -12,22 +13,28 @@ export class OrderTypeormRepository
   extends Repository<OrderTypeorm>
   implements OrderRepository
 {
-  constructor(
-    @Inject('OrderItemRepository')
-    private readonly orderItemRepository: OrderItemRepository,
-  ) {
+  private orderItemRepository: OrderItemRepository;
+
+  constructor(private connection: Connection) {
     super();
+    this.orderItemRepository = this.connection.getCustomRepository(
+      OrderItemTypeormRepository,
+    );
   }
 
   async addOrder(order: Order) {
     const orderOrm: OrderTypeorm = OrderTypeormMapper.toOrmEntity(order);
 
-    for (const item of orderOrm.items) {
-      await this.orderItemRepository.addOrderItem(item);
-    }
+    const insertOrderResult: OrderTypeorm = await this.save(orderOrm);
 
-    const insertResult: OrderTypeorm = await this.save(orderOrm);
-    return { id: insertResult.id };
+    for (const item of orderOrm.items) {
+      // item.order = { id: insertOrderResult.id };
+      await this.orderItemRepository.addOrderItem({
+        ...item,
+        order: insertOrderResult,
+      });
+    }
+    return insertOrderResult;
   }
 
   async getAllOrders() {

@@ -1,11 +1,14 @@
-import { IsNotEmpty } from 'class-validator';
+import { Type } from 'class-transformer';
+import { IsArray, IsNotEmpty, ValidateNested } from 'class-validator';
 import { Client } from 'src/core/entities/client.entity';
-import { OrderItem } from 'src/core/entities/order-item.entity';
+import { CreateOrderItemDto } from '../order-items/create-order-item.dto';
 
 export class CreateOrderDto {
   @IsNotEmpty()
   client: Client;
 
-  @IsNotEmpty()
-  items: OrderItem[];
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => CreateOrderItemDto)
+  items: CreateOrderItemDto[];
 }

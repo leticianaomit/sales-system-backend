@@ -7,6 +7,7 @@ import {
   Patch,
   Post,
 } from '@nestjs/common';
+import { CreateOrderDto } from 'src/typeorm/dtos/orders/create-order.dto';
 import { CreateOrderUseCase } from 'src/use-cases/orders/create-order.usecase';
 import { FindAllOrdersUseCase } from 'src/use-cases/orders/find-all-orders.usecase';
 
@@ -18,7 +19,7 @@ export class OrdersController {
   ) {}
 
   @Post()
-  create(@Body() createOrderDto: any) {
+  create(@Body() createOrderDto: CreateOrderDto) {
     return this.createOrderUseCase.execute(createOrderDto);
   }
 

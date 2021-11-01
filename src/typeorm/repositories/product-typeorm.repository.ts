@@ -10,7 +10,8 @@ export class ProductTypeormRepository
   implements ProductRepository
 {
   async addProduct(product: Product) {
-    const productOrm: ProductTypeorm = ProductTypeormMapper.toOrmEntity(product);
+    const productOrm: ProductTypeorm =
+      ProductTypeormMapper.toOrmEntity(product);
 
     const insertResult: ProductTypeorm = await this.save(productOrm);
 
@@ -26,7 +27,8 @@ export class ProductTypeormRepository
   }
 
   async updateProduct(id: Product['id'], product: Product) {
-    const productOrm: ProductTypeorm = ProductTypeormMapper.toOrmEntity(product);
+    const productOrm: ProductTypeorm =
+      ProductTypeormMapper.toOrmEntity(product);
 
     await this.createQueryBuilder()
       .update()
@@ -37,5 +39,10 @@ export class ProductTypeormRepository
 
   async deleteProduct(id: Product['id']) {
     await this.delete({ id });
+  }
+
+  async getProductById(id: Product['id']) {
+    const productOrm = await this.findOne(id);
+    return ProductTypeormMapper.toEntity(productOrm);
   }
 }

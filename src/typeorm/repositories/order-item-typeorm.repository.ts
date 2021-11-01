@@ -9,8 +9,7 @@ export class OrderItemTypeormRepository extends Repository<OrderItemTypeorm> {
     const orderItemOrm: OrderItemTypeorm =
       OrderItemTypeormMapper.toOrmEntity(orderItem);
     const insertResult: OrderItemTypeorm = await this.save(orderItemOrm);
-    console.log(insertResult);
-    
+
     return { id: insertResult.id };
   }
 }

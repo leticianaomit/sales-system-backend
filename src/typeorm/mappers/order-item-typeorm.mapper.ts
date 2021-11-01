@@ -7,6 +7,10 @@ export class OrderItemTypeormMapper {
     const orderItemOrm: OrderItemTypeorm = new OrderItemTypeorm();
 
     orderItemOrm.id = orderItem.id;
+    orderItemOrm.price = orderItem.price;
+    orderItemOrm.quantity = orderItem.quantity;
+    orderItemOrm.product = orderItem.product;
+    orderItemOrm.order = orderItem.order;
 
     return orderItemOrm;
   }
@@ -19,6 +23,9 @@ export class OrderItemTypeormMapper {
     const orderItem: OrderItem = new OrderItem({
       id: orderItemOrm.id,
       order: orderItemOrm.order,
+      price: orderItemOrm.price,
+      quantity: orderItemOrm.quantity,
+      product: orderItemOrm.product,
     });
 
     return orderItem;

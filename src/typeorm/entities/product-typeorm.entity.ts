@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({ name: 'products' })
 export class ProductTypeorm {
@@ -9,7 +9,7 @@ export class ProductTypeorm {
   name: string;
 
   @Column({ nullable: false })
-  price: string;
+  price: number;
 
   @Column({ default: 1 })
   multiple: number;
