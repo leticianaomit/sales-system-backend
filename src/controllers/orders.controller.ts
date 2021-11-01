@@ -8,11 +8,13 @@ import {
   Post,
 } from '@nestjs/common';
 import { CreateOrderUseCase } from 'src/use-cases/orders/create-order.usecase';
+import { FindAllOrdersUseCase } from 'src/use-cases/orders/find-all-orders.usecase';
 
 @Controller('orders')
 export class OrdersController {
   constructor(
     private createOrderUseCase: CreateOrderUseCase,
+    private findAllOrdersUseCase: FindAllOrdersUseCase,
   ) {}
 
   @Post()
@@ -20,18 +22,8 @@ export class OrdersController {
     return this.createOrderUseCase.execute(createOrderDto);
   }
 
-  // @Get()
-  // findAll() {
-  //   return this.findAllProductsUseCase.execute();
-  // }
-
-  // @Patch(':id')
-  // update(@Param('id') id: string, @Body() updateClientDto: UpdateProductDto) {
-  //   return this.updateProductUseCase.execute(id, updateClientDto);
-  // }
-
-  // @Delete(':id')
-  // remove(@Param('id') id: string) {
-  //   return this.deleteProductUseCase.execute(id);
-  // }
+  @Get()
+  findAll() {
+    return this.findAllOrdersUseCase.execute();
+  }
 }
