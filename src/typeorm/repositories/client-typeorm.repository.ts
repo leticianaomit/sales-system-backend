@@ -1,5 +1,5 @@
 import { Client } from 'src/core/models/client.model';
-import { ClientRepository } from 'src/core/repositories/client.repository';
+import { ClientRepository } from 'src/repositories/client.repository';
 import { EntityRepository, Repository } from 'typeorm';
 import { ClientTypeorm } from '../entities/client-typeorm.entity';
 import { ClientTypeormMapper } from '../mappers/client-typeorm.mapper';

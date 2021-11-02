@@ -1,6 +1,6 @@
 import { Order } from 'src/core/models/order.model';
-import { OrderItemRepository } from 'src/core/repositories/order-item.repository';
-import { OrderRepository } from 'src/core/repositories/order.repository';
+import { OrderItemRepository } from 'src/repositories/order-item.repository';
+import { OrderRepository } from 'src/repositories/order.repository';
 import { Connection, EntityRepository, Repository } from 'typeorm';
 import { OrderTypeorm } from '../entities/order-typeorm.entity';
 import { OrderTypeormMapper } from '../mappers/order-typeorm.mapper';

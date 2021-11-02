@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { ClientRepository } from 'src/core/repositories/client.repository';
+import { ClientRepository } from 'src/repositories/client.repository';
 
 @Injectable()
 export class FindAllClientsUseCase {

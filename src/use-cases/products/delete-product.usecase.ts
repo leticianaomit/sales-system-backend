@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Product } from 'src/core/models/product.model';
-import { ProductRepository } from 'src/core/repositories/product.repository';
+import { ProductRepository } from 'src/repositories/product.repository';
 
 @Injectable()
 export class DeleteProductUseCase {

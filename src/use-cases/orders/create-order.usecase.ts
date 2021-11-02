@@ -1,8 +1,8 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { OrderItem } from 'src/core/models/order-item.model';
 import { Order } from 'src/core/models/order.model';
-import { OrderRepository } from 'src/core/repositories/order.repository';
-import { ProductRepository } from 'src/core/repositories/product.repository';
+import { OrderRepository } from 'src/repositories/order.repository';
+import { ProductRepository } from 'src/repositories/product.repository';
 import { CreateOrderDto } from 'src/typeorm/dtos/orders/create-order.dto';
 import { ValidateItemUseCase } from '../items/validate-item.usecase';
 

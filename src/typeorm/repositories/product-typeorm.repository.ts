@@ -1,5 +1,5 @@
 import { Product } from 'src/core/models/product.model';
-import { ProductRepository } from 'src/core/repositories/product.repository';
+import { ProductRepository } from 'src/repositories/product.repository';
 import { EntityRepository, Repository } from 'typeorm';
 import { ProductTypeorm } from '../entities/product-typeorm.entity';
 import { ProductTypeormMapper } from '../mappers/product-typeorm.mapper';

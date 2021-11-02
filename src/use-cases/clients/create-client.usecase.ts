@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Client } from 'src/core/models/client.model';
-import { ClientRepository } from 'src/core/repositories/client.repository';
+import { ClientRepository } from 'src/repositories/client.repository';
 import { CreateClientDto } from 'src/typeorm/dtos/clients/create-client.dto';
 
 @Injectable()

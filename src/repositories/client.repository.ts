@@ -1,4 +1,4 @@
-import { Client } from '../models/client.model';
+import { Client } from '../core/models/client.model';
 
 export interface ClientRepository {
   addClient(data: Client): Promise<{ id: Client['id'] }>;
