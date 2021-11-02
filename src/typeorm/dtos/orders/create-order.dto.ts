@@ -1,6 +1,6 @@
 import { Type } from 'class-transformer';
 import { IsArray, IsNotEmpty, ValidateNested } from 'class-validator';
-import { Client } from 'src/core/entities/client.entity';
+import { Client } from 'src/core/models/client.model';
 import { CreateOrderItemDto } from '../order-items/create-order-item.dto';
 
 export class CreateOrderDto {

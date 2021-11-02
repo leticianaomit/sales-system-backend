@@ -1,4 +1,4 @@
-import { Product } from 'src/core/entities/product.entity';
+import { Product } from 'src/core/models/product.model';
 import { ProductTypeorm } from '../entities/product-typeorm.entity';
 
 export class ProductTypeormMapper {

@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { Client } from 'src/core/entities/client.entity';
+import { Client } from 'src/core/models/client.model';
 import { ClientRepository } from 'src/core/repositories/client.repository';
 import { UpdateClientDto } from 'src/typeorm/dtos/clients/update-client.dto';
 
@@ -9,10 +9,7 @@ export class UpdateClientUseCase {
     @Inject('ClientRepository') private readonly repository: ClientRepository,
   ) {}
 
-  public async execute(
-    id: Client['id'],
-    updateClientDto: UpdateClientDto,
-  ) {
+  public async execute(id: Client['id'], updateClientDto: UpdateClientDto) {
     const client = new Client(updateClientDto);
     this.repository.updateClient(id, client);
   }

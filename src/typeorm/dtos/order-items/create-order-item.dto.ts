@@ -1,5 +1,5 @@
-import { IsDecimal, IsInt, IsNotEmpty } from 'class-validator';
-import { Product } from 'src/core/entities/product.entity';
+import { IsInt, IsNotEmpty } from 'class-validator';
+import { Product } from 'src/core/models/product.model';
 
 export class CreateOrderItemDto {
   @IsNotEmpty()

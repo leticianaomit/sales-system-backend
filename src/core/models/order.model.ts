@@ -1,5 +1,5 @@
-import { Client } from './client.entity';
-import { OrderItem } from './order-item.entity';
+import { Client } from './client.model';
+import { OrderItem } from './order-item.model';
 
 export class Order {
   id?: string;

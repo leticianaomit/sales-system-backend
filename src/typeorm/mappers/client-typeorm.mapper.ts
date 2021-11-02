@@ -1,4 +1,4 @@
-import { Client } from 'src/core/entities/client.entity';
+import { Client } from 'src/core/models/client.model';
 import { ClientTypeorm } from '../entities/client-typeorm.entity';
 
 export class ClientTypeormMapper {

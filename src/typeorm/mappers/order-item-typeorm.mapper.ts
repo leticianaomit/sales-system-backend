@@ -1,5 +1,4 @@
-import { OrderItem } from 'src/core/entities/order-item.entity';
-import { Order } from 'src/core/entities/order.entity';
+import { OrderItem } from 'src/core/models/order-item.model';
 import { OrderItemTypeorm } from '../entities/order-item-typeorm.entity';
 
 export class OrderItemTypeormMapper {

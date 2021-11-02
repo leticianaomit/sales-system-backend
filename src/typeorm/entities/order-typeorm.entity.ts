@@ -1,5 +1,5 @@
-import { Client } from 'src/core/entities/client.entity';
-import { OrderItem } from 'src/core/entities/order-item.entity';
+import { Client } from 'src/core/models/client.model';
+import { OrderItem } from 'src/core/models/order-item.model';
 import { Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { ClientTypeorm } from './client-typeorm.entity';
 import { OrderItemTypeorm } from './order-item-typeorm.entity';

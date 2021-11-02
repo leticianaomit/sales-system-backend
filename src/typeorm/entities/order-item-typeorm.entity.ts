@@ -1,11 +1,6 @@
-import { Order } from 'src/core/entities/order.entity';
-import { Product } from 'src/core/entities/product.entity';
-import {
-  Column,
-  Entity,
-  ManyToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Order } from 'src/core/models/order.model';
+import { Product } from 'src/core/models/product.model';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { OrderTypeorm } from './order-typeorm.entity';
 import { ProductTypeorm } from './product-typeorm.entity';
 

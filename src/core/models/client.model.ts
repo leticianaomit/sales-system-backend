@@ -1,9 +1,9 @@
-import { Order } from './order.entity';
+import { Order } from './order.model';
 
 export class Client {
   id?: string;
   name: string;
-  orders?: Order[]
+  orders?: Order[];
 
   constructor(client: Client) {
     this.id = client.id;
