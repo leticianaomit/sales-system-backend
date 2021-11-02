@@ -1,4 +1,5 @@
 import { OrderItem } from 'src/core/entities/order-item.entity';
+import { Order } from 'src/core/entities/order.entity';
 import { EntityRepository, Repository } from 'typeorm';
 import { OrderItemTypeorm } from '../entities/order-item-typeorm.entity';
 import { OrderItemTypeormMapper } from '../mappers/order-item-typeorm.mapper';
@@ -11,5 +12,29 @@ export class OrderItemTypeormRepository extends Repository<OrderItemTypeorm> {
     const insertResult: OrderItemTypeorm = await this.save(orderItemOrm);
 
     return { id: insertResult.id };
+  }
+
+  async getAllItems(id: Order['id']) {
+    const orderItemsOrms: OrderItemTypeorm[] = await this.createQueryBuilder(
+      'order_items',
+    )
+      .where({
+        order: {
+          id,
+        },
+      })
+      .select([
+        'order_items.id',
+        'order_items.price',
+        'order_items.quantity',
+        'products.name',
+      ])
+      .leftJoin('order_items.product', 'products')
+      .getMany();
+
+    const orderItems: OrderItem[] =
+      OrderItemTypeormMapper.toEntities(orderItemsOrms);
+
+    return orderItems;
   }
 }
