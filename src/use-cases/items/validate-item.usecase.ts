@@ -1,17 +1,23 @@
 import { Injectable } from '@nestjs/common';
-import { OrderItem } from 'src/core/entities/order-item.entity';
-import { ValiateItemProfitabilityUseCase } from './validate-item-profitability.usecase';
-import { ValiateItemQuantityUseCase } from './validate-item-quantity.usecase';
+import { OrderItem } from 'src/core/models/order-item.model';
+import { ValidateItemProfitabilityUseCase } from './validate-item-profitability.usecase';
+import { ValidateItemQuantityUseCase } from './validate-item-quantity.usecase';
 
 @Injectable()
-export class ValiateItemUseCase {
+export class ValidateItemUseCase {
   constructor(
-    private valiateItemProfitabilityUseCase: ValiateItemProfitabilityUseCase,
-    private valiateItemQuantityUseCase: ValiateItemQuantityUseCase,
+    private validateItemProfitabilityUseCase: ValidateItemProfitabilityUseCase,
+    private validateItemQuantityUseCase: ValidateItemQuantityUseCase,
   ) {}
 
   public async execute(item: OrderItem) {
-    this.valiateItemProfitabilityUseCase.check(item.product.price, item.price);
-    this.valiateItemQuantityUseCase.check(item.product.multiple, item.quantity);
+    await this.validateItemProfitabilityUseCase.check(
+      item.product.price,
+      item.price,
+    );
+    await this.validateItemQuantityUseCase.check(
+      item.product.multiple,
+      item.quantity,
+    );
   }
 }

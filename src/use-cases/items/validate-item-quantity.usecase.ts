@@ -3,7 +3,7 @@ import { OrderItem } from 'src/core/models/order-item.model';
 import { Product } from 'src/core/models/product.model';
 
 @Injectable()
-export class ValiateItemQuantityUseCase {
+export class ValidateItemQuantityUseCase {
   constructor() {}
 
   public async check(
