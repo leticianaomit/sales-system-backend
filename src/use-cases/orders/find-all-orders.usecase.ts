@@ -7,7 +7,7 @@ export class FindAllOrdersUseCase {
     @Inject('OrderRepository') private readonly repository: OrderRepository,
   ) {}
 
-  public async execute() {
-    return await this.repository.getAllOrders();
+  public execute() {
+    return this.repository.getAllOrders();
   }
 }

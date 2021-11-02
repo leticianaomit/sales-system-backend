@@ -1,4 +1,4 @@
-import { Order } from 'src/core/models/order.model';
+import { Order } from 'src/domains/models/order.model';
 import { OrderItemRepository } from 'src/repositories/order-item.repository';
 import { OrderRepository } from 'src/repositories/order.repository';
 import { Connection, EntityRepository, Repository } from 'typeorm';

@@ -1,4 +1,4 @@
-import { Product } from '../core/models/product.model';
+import { Product } from '../domains/models/product.model';
 
 export interface ProductRepository {
   addProduct(data: Product): Promise<{ id: Product['id'] }>;

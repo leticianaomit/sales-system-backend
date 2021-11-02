@@ -1,5 +1,5 @@
-import { Order } from 'src/core/models/order.model';
-import { Product } from 'src/core/models/product.model';
+import { Order } from 'src/domains/models/order.model';
+import { Product } from 'src/domains/models/product.model';
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { OrderTypeorm } from './order-typeorm.entity';
 import { ProductTypeorm } from './product-typeorm.entity';

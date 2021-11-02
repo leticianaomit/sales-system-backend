@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { Product } from 'src/core/models/product.model';
+import { Product } from 'src/domains/models/product.model';
 import { ProductRepository } from 'src/repositories/product.repository';
-import { CreateUpdateProductDto } from 'src/typeorm/dtos/products/create-update-product.dto';
+import { CreateUpdateProductDto } from 'src/domains/dtos/products/create-update-product.dto';
 
 @Injectable()
 export class UpdateProductUseCase {
@@ -9,16 +9,13 @@ export class UpdateProductUseCase {
     @Inject('ProductRepository') private readonly repository: ProductRepository,
   ) {}
 
-  public async execute(
-    id: Product['id'],
-    updateProductDto: CreateUpdateProductDto,
-  ) {
-    const client = new Product({
+  public execute(id: Product['id'], updateProductDto: CreateUpdateProductDto) {
+    const product = new Product({
       id,
       name: updateProductDto.name,
       multiple: updateProductDto.multiple,
       price: updateProductDto.price,
     });
-    this.repository.updateProduct(id, client);
+    return this.repository.updateProduct(id, product);
   }
 }

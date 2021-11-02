@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { CreateOrderDto } from 'src/typeorm/dtos/orders/create-order.dto';
+import { CreateOrderDto } from 'src/domains/dtos/orders/create-order.dto';
 import { CreateOrderUseCase } from 'src/use-cases/orders/create-order.usecase';
 import { FindAllOrderItemsUseCase } from 'src/use-cases/orders/find-all-order-items.usecase';
 import { FindAllOrdersUseCase } from 'src/use-cases/orders/find-all-orders.usecase';

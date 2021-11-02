@@ -7,7 +7,7 @@ export class FindAllClientsUseCase {
     @Inject('ClientRepository') private readonly repository: ClientRepository,
   ) {}
 
-  public async execute() {
-    return await this.repository.getAllClients();
+  public execute() {
+    return this.repository.getAllClients();
   }
 }

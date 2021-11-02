@@ -1,5 +1,5 @@
-import { OrderItem } from 'src/core/models/order-item.model';
-import { Order } from 'src/core/models/order.model';
+import { OrderItem } from 'src/domains/models/order-item.model';
+import { Order } from 'src/domains/models/order.model';
 import { EntityRepository, Repository } from 'typeorm';
 import { OrderItemTypeorm } from '../entities/order-item-typeorm.entity';
 import { OrderItemTypeormMapper } from '../mappers/order-item-typeorm.mapper';

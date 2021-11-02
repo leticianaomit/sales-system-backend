@@ -1,4 +1,4 @@
-import { Product } from 'src/core/models/product.model';
+import { Product } from 'src/domains/models/product.model';
 import { ProductRepository } from 'src/repositories/product.repository';
 import { EntityRepository, Repository } from 'typeorm';
 import { ProductTypeorm } from '../entities/product-typeorm.entity';

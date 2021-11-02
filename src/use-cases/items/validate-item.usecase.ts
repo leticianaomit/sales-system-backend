@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { OrderItem } from 'src/core/models/order-item.model';
+import { OrderItem } from 'src/domains/models/order-item.model';
 import { ValidateItemProfitabilityUseCase } from './validate-item-profitability.usecase';
 import { ValidateItemQuantityUseCase } from './validate-item-quantity.usecase';
 

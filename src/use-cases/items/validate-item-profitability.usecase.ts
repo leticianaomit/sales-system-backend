@@ -1,6 +1,6 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
-import { OrderItem } from 'src/core/models/order-item.model';
-import { Product } from 'src/core/models/product.model';
+import { OrderItem } from 'src/domains/models/order-item.model';
+import { Product } from 'src/domains/models/product.model';
 
 @Injectable()
 export class ValidateItemProfitabilityUseCase {

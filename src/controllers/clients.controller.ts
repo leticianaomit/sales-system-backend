@@ -7,8 +7,8 @@ import {
   Patch,
   Post,
 } from '@nestjs/common';
-import { CreateClientDto } from 'src/typeorm/dtos/clients/create-client.dto';
-import { UpdateClientDto } from 'src/typeorm/dtos/clients/update-client.dto';
+import { CreateClientDto } from 'src/domains/dtos/clients/create-client.dto';
+import { UpdateClientDto } from 'src/domains/dtos/clients/update-client.dto';
 import { CreateClientUseCase } from 'src/use-cases/clients/create-client.usecase';
 import { DeleteClientUseCase } from 'src/use-cases/clients/delete-client.usecase';
 import { FindAllClientsUseCase } from 'src/use-cases/clients/find-all-clients.usecase';

@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { Order } from 'src/core/models/order.model';
+import { Order } from 'src/domains/models/order.model';
 import { OrderItemRepository } from 'src/repositories/order-item.repository';
 
 @Injectable()
@@ -9,7 +9,7 @@ export class FindAllOrderItemsUseCase {
     private readonly repository: OrderItemRepository,
   ) {}
 
-  public async execute(id: Order['id']) {
-    return await this.repository.getAllItems(id);
+  public execute(id: Order['id']) {
+    return this.repository.getAllItems(id);
   }
 }

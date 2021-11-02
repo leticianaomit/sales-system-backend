@@ -7,7 +7,7 @@ import {
   Patch,
   Post,
 } from '@nestjs/common';
-import { CreateUpdateProductDto } from 'src/typeorm/dtos/products/create-update-product.dto';
+import { CreateUpdateProductDto } from 'src/domains/dtos/products/create-update-product.dto';
 import { CreateProductUseCase } from 'src/use-cases/products/create-product.usecase';
 import { DeleteProductUseCase } from 'src/use-cases/products/delete-product.usecase';
 import { FindAllProductsUseCase } from 'src/use-cases/products/find-all-products.usecase';

@@ -1,9 +1,9 @@
-import { OrderItem } from 'src/core/models/order-item.model';
+import { OrderItem } from 'src/domains/models/order-item.model';
 import { OrderItemTypeorm } from '../entities/order-item-typeorm.entity';
 
 export class OrderItemTypeormMapper {
   public static toOrmEntity(orderItem: OrderItem): OrderItemTypeorm {
-    const orderItemOrm: OrderItemTypeorm = new OrderItemTypeorm();
+    const orderItemOrm = new OrderItemTypeorm();
 
     orderItemOrm.id = orderItem.id;
     orderItemOrm.price = orderItem.price;
@@ -19,15 +19,13 @@ export class OrderItemTypeormMapper {
   }
 
   public static toEntity(orderItemOrm: OrderItemTypeorm): OrderItem {
-    const orderItem: OrderItem = new OrderItem({
+    return new OrderItem({
       id: orderItemOrm.id,
       order: orderItemOrm.order,
       price: orderItemOrm.price,
       quantity: orderItemOrm.quantity,
       product: orderItemOrm.product,
     });
-
-    return orderItem;
   }
 
   public static toEntities(orderItemOrms: OrderItemTypeorm[]): OrderItem[] {

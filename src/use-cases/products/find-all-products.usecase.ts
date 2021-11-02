@@ -7,7 +7,7 @@ export class FindAllProductsUseCase {
     @Inject('ProductRepository') private readonly repository: ProductRepository,
   ) {}
 
-  public async execute() {
-    return await this.repository.getAllProducts();
+  public execute() {
+    return this.repository.getAllProducts();
   }
 }

@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { Client } from 'src/core/models/client.model';
+import { Client } from 'src/domains/models/client.model';
 import { ClientRepository } from 'src/repositories/client.repository';
 
 @Injectable()
@@ -8,7 +8,7 @@ export class DeleteClientUseCase {
     @Inject('ClientRepository') private readonly repository: ClientRepository,
   ) {}
 
-  public async execute(id: Client['id']) {
-    return await this.repository.deleteClient(id);
+  public execute(id: Client['id']) {
+    return this.repository.deleteClient(id);
   }
 }

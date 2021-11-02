@@ -1,9 +1,9 @@
-import { Product } from 'src/core/models/product.model';
+import { Product } from 'src/domains/models/product.model';
 import { ProductTypeorm } from '../entities/product-typeorm.entity';
 
 export class ProductTypeormMapper {
   public static toOrmEntity(product: Product): ProductTypeorm {
-    const productOrm: ProductTypeorm = new ProductTypeorm();
+    const productOrm = new ProductTypeorm();
 
     productOrm.id = product.id;
     productOrm.name = product.name;
@@ -18,14 +18,12 @@ export class ProductTypeormMapper {
   }
 
   public static toEntity(productOrm: ProductTypeorm): Product {
-    const product: Product = new Product({
+    return new Product({
       id: productOrm.id,
       name: productOrm.name,
       price: productOrm.price,
       multiple: productOrm.multiple,
     });
-
-    return product;
   }
 
   public static toEntities(productOrms: ProductTypeorm[]): Product[] {

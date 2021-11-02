@@ -1,9 +1,9 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { OrderItem } from 'src/core/models/order-item.model';
-import { Order } from 'src/core/models/order.model';
+import { OrderItem } from 'src/domains/models/order-item.model';
+import { Order } from 'src/domains/models/order.model';
 import { OrderRepository } from 'src/repositories/order.repository';
 import { ProductRepository } from 'src/repositories/product.repository';
-import { CreateOrderDto } from 'src/typeorm/dtos/orders/create-order.dto';
+import { CreateOrderDto } from 'src/domains/dtos/orders/create-order.dto';
 import { ValidateItemUseCase } from '../items/validate-item.usecase';
 
 @Injectable()
@@ -34,11 +34,9 @@ export class CreateOrderUseCase {
       const product = await this.productRepository.getProductById(
         item.product.id,
       );
-      this.validateItemUseCase.execute({ ...item, product });
+      await this.validateItemUseCase.execute({ ...item, product });
     }
 
-    const resultOrder = await this.repository.addOrder(order);
-
-    return resultOrder;
+    return await this.repository.addOrder(order);
   }
 }

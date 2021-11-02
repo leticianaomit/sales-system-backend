@@ -1,4 +1,4 @@
-import { Client } from 'src/core/models/client.model';
+import { Client } from 'src/domains/models/client.model';
 import { ClientRepository } from 'src/repositories/client.repository';
 import { EntityRepository, Repository } from 'typeorm';
 import { ClientTypeorm } from '../entities/client-typeorm.entity';
