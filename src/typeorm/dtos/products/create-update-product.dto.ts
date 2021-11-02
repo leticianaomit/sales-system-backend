@@ -4,9 +4,10 @@ export class CreateUpdateProductDto {
   @IsNotEmpty()
   name: string;
 
-  @IsDecimal()
-  price: number;
+  @IsNotEmpty()
+  price: string;
 
+  @IsNotEmpty()
   @IsInt()
   multiple: number;
 }

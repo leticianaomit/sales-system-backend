@@ -9,7 +9,7 @@ export class ProductTypeorm {
   name: string;
 
   @Column({ nullable: false })
-  price: number;
+  price: string;
 
   @Column({ default: 1 })
   multiple: number;

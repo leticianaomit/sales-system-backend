@@ -4,7 +4,7 @@ import { Product } from './product.entity';
 export class OrderItem {
   id?: string;
   product: Product;
-  price: number;
+  price: string;
   quantity: number;
   order?: Order;
 

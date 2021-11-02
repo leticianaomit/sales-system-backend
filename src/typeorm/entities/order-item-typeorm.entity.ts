@@ -15,7 +15,7 @@ export class OrderItemTypeorm {
   id: string;
 
   @Column()
-  price: number;
+  price: string;
 
   @Column()
   quantity: number;

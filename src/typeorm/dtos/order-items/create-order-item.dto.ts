@@ -6,8 +6,7 @@ export class CreateOrderItemDto {
   product: Product;
 
   @IsNotEmpty()
-  @IsDecimal()
-  price: number;
+  price: string;
 
   @IsNotEmpty()
   @IsInt()

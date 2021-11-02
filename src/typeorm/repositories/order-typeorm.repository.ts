@@ -1,5 +1,3 @@
-import { Inject } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
 import { Order } from 'src/core/entities/order.entity';
 import { OrderItemRepository } from 'src/core/repositories/order-item.repository';
 import { OrderRepository } from 'src/core/repositories/order.repository';
@@ -28,7 +26,6 @@ export class OrderTypeormRepository
     const insertOrderResult: OrderTypeorm = await this.save(orderOrm);
 
     for (const item of orderOrm.items) {
-      // item.order = { id: insertOrderResult.id };
       await this.orderItemRepository.addOrderItem({
         ...item,
         order: insertOrderResult,
@@ -38,8 +35,9 @@ export class OrderTypeormRepository
   }
 
   async getAllOrders() {
-    const orderOrms: OrderTypeorm[] = await this.find();
-    console.log(orderOrms);
+    const orderOrms: OrderTypeorm[] = await this.find({
+      relations: ['client'],
+    });
 
     const findResult: Order[] = OrderTypeormMapper.toEntities(orderOrms);
     return findResult;
